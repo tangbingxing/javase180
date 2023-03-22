@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/out" />
+    <output-test url="file://$MODULE_DIR$/test" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/bjpowernode/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day08/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day09/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/exam/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/jsd2303_teacher/homework" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tedu/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/src" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/woniu/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
