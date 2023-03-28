@@ -23,10 +23,8 @@ public class StudentDao {
 
     //成员方法deleteStudentById:删除学生信息,传入要删除的学生Id,返回布尔值（也可不返回）
     public void deleteStudentById(String Id) {
-
-    //判断是存在该Id的学生
+        //删除学生信息
         for (Student student : students) {
-            //删除集合中指定Id的学生信息
             students.remove(student);
         }
     }
@@ -50,5 +48,17 @@ public class StudentDao {
             //修改失败
             System.out.println("Update Student False");
         }
+    }
+
+    //判断Id是否存在
+    public boolean findId(String deleteId) {
+        //遍历集合
+        boolean idExit = false;//默认Id不存在
+        for (Student student : students) {
+            if (student.getId().equals(deleteId)) {
+                idExit = true;
+            }
+        }
+        return idExit;
     }
 }

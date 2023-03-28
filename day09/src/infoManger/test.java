@@ -1,19 +1,28 @@
 package infoManger;
 
-import infoManger.dao.StudentDao;
-import infoManger.info.Student;
+import java.util.ArrayList;
 
 public class test {
     public static void main(String[] args) {
-        StudentDao studentDao = new StudentDao();
-        Student student = new Student("12","Tom","18","03-19");
-        Student student2 = new Student("15","Jack","18","03-19");
-        Student student3 = new Student("15","Jan","20","03-19");
-        studentDao.addStudent(student);
-        studentDao.addStudent(student2);
-        studentDao.findAllStudent();
-        studentDao.updateStudentById("12",student3);
-        studentDao.deleteStudentById("15");
-        studentDao.findAllStudent();
+        ArrayList<String> str = new ArrayList<>();
+        //集合的添加
+
+        str.add("a");
+        str.add("b");
+        //集合的获取
+        System.out.println(str.get(0));
+        System.out.println(str.get(1));
+        for (String s : str) {
+            System.out.println("s = " + s);
+        }
+        //String [] strs;
+        //
+        //strs = str.toArray();
+        //
+        int [] a = {10,12,14};
+        //System.out.println(a.toString());
+        for (int i : a) {
+            System.out.println(i);
+        }
     }
 }

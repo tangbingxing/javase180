@@ -12,6 +12,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tedu/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/src" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/woniu/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CodeGym/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

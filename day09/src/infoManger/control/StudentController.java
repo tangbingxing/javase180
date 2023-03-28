@@ -12,12 +12,12 @@ import java.util.Scanner;
 
 public class StudentController {
     //成员属性
-
     StudentService studentService = new StudentService();
-
-
     private Scanner sc = new Scanner(System.in);
+
+
     //成员方法
+
     //开始界面
     public void start() {
         loop:while (true) {
@@ -48,8 +48,8 @@ public class StudentController {
                     break;
                 case 5:
                     //退出   直到用户选择退出才回到主界面，否则一直在当前页面循坏
-//                    exit();  //用return语句退出
-                    break loop;   //用break退出
+                    exit();
+                    break loop;   //也可用break退出
                 default:
                     System.out.println("Your input is incorrect, please re-enter it");
                     break;
@@ -57,6 +57,7 @@ public class StudentController {
         }
     }
 
+    //退出
     private void exit() {
         System.out.println("Are you sure?(Y/N)");
         String res = sc.next();
@@ -66,6 +67,7 @@ public class StudentController {
         }
     }
 
+    //修改
     private void updateStudent() {
         System.out.println("Please enter update student Id");
         String updateId = sc.next();
@@ -92,36 +94,41 @@ public class StudentController {
         //如果Id不存在，则提示错误信息，并返回选择页面
     }
 
+    //删除
     private void deleteStudent() {
         System.out.println("Please enter delete student Id");
         String deleteId = sc.next();
-        //如果Id存在，则删除
-        //如果Id不存在，则提示错误信息，并返回选择页面
-        if(studentService.findId(deleteId)) {
-            studentService.deleteStudentById(deleteId);
+        boolean res = studentService.deleteStudentById(deleteId);
+        if(res) {
             System.out.println("Delete Successful");
         } else {
             System.out.println("Id not exist");
         }
     }
 
+    //查找全部
+
     private void findAllStudent() {
         System.out.println("Show All Student Info");
         System.out.println("ID\t" + "name\t" + "age\t" + "birthday");
 //        用集合接收，并单独输出
-        ArrayList allStudent = studentService.findAllStudent();
+        ArrayList allStudents = studentService.findAllStudent();
         //遍历集合
-        System.out.println();
+        for (Object allStudent : allStudents) {
+            System.out.println(allStudent);
+        }
     }
 
+    //添加
     private void addStudent() {
         while (true) {
             System.out.println("Please add student");
             System.out.println("enter Id");
             String Id = sc.next();
-            //判断Id是否存在，不存在继续进行下一步，存在则死循坏
+            //判断Id是否存在，不存在继续进行下一步，存在则提示该Id已被占用
             if(studentService.findId(Id)) {
-                continue;
+                System.out.println("Id was exit,please enter again");
+                continue;//跳过本次循环，进行下一轮
             }
             System.out.println("enter name");
             String name = sc.next();
@@ -129,6 +136,18 @@ public class StudentController {
             String age = sc.next();
             System.out.println("enter birthday");
             String birthday = sc.next();
+            //将属性封装到对象中
+            Student newStudent = new Student();
+            newStudent.setId(Id);
+            newStudent.setName(name);
+            newStudent.setAge(age);
+            newStudent.setBirthday(birthday);
+            //将封装好的对象传给业务层
+            studentService.addStudent(newStudent);
+            System.out.println("Add Student Successful");
+
+            //测试
+            System.out.println(newStudent);
             break;
         }
     }

@@ -23,8 +23,8 @@ public class StudentService {
 
 
     //成员方法addStudent  添加学生
-    public void addStudent() {
-
+    public void addStudent(Student student) {
+        studentDao.addStudent(student);
     }
 
     //根据传入的Id，查找是否存在相同的Id，存在则返回true，不存在则返回false;
@@ -42,8 +42,16 @@ public class StudentService {
     }
 
     //删除指定Id学生的信息
-    public void deleteStudentById(String deleteId) {
-        studentDao.deleteStudentById(deleteId);
+    public boolean deleteStudentById(String deleteId) {
+
+        //若存在，则交给Dao类删除，若不存在，则返回false
+        boolean res = false;
+        //判断Id是否存在
+        if (studentDao.findId(deleteId)) {
+            studentDao.deleteStudentById(deleteId);
+            res = true;
+        }
+        return res;
     }
 
     //修改指定Id学生的信息
